@@ -1,0 +1,4 @@
+# Project exclude paths
+/client/target/
+/formessentials/target/
+/server/target/

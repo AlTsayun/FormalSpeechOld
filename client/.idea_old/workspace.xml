@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4af7945e-d404-4b71-ba20-ec51cf49e739" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="AlTsayun &lt;al.tsayun@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\workspace\OOP\TextHierarchy\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YqSGsr1A9YdIF868Hq9jowiVN5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="plugins" />
+      <recent name="pluginStuff" />
+      <recent name="serializers" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="fx.windows.mainWindow" />
+      <recent name="fx.windows.editWindow" />
+      <recent name="fx.windows.chooseHierarchyClassMenu" />
+      <recent name="fx" />
+      <recent name="fx.listItems" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx" />
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx\listComponents" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fx" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx\windows\saveFileDialog" />
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx\windows\mainWindow" />
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx\windows\loadFileDIalog" />
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx\windows\editWindow" />
+      <recent name="D:\workspace\OOP\TextHierarchy\src\main\resources\fx\windows\chooseHierarchyClassMenu" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainApplication">
+    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="MAIN_CLASS_NAME" value="MainApplication" />
+      <module name="TextHierarchy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MainApplication" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Programs\Java\javafx-sdk-11.0.2\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Base32Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TextHierarchy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="plugins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="plugins" />
+      <option name="MAIN_CLASS_NAME" value="plugins.Base32Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Base64Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TextHierarchy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="plugins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="plugins" />
+      <option name="MAIN_CLASS_NAME" value="plugins.Base64Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PluginsLoaderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TextHierarchy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="plugins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="plugins" />
+      <option name="MAIN_CLASS_NAME" value="plugins.PluginsLoaderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SerializersHandlerTest.givenLocalFile_whenReading_thenLoadedObjects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TextHierarchy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serializers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serializers" />
+      <option name="MAIN_CLASS_NAME" value="serializers.SerializersHandlerTest" />
+      <option name="METHOD_NAME" value="givenLocalFile_whenReading_thenLoadedObjects" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TextSerializerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TextHierarchy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serializers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serializers" />
+      <option name="MAIN_CLASS_NAME" value="serializers.TextSerializerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MainApplication" />
+      <item itemvalue="JUnit.SerializersHandlerTest.givenLocalFile_whenReading_thenLoadedObjects" />
+      <item itemvalue="JUnit.TextSerializerTest" />
+      <item itemvalue="JUnit.Base32Test" />
+      <item itemvalue="JUnit.Base64Test" />
+      <item itemvalue="JUnit.PluginsLoaderTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PluginsLoaderTest" />
+        <item itemvalue="JUnit.Base64Test" />
+        <item itemvalue="JUnit.Base32Test" />
+        <item itemvalue="JUnit.TextSerializerTest" />
+        <item itemvalue="JUnit.SerializersHandlerTest.givenLocalFile_whenReading_thenLoadedObjects" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4af7945e-d404-4b71-ba20-ec51cf49e739" name="Default Changelist" comment="" />
+      <created>1583668538939</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583668538939</updated>
+      <workItem from="1583668542776" duration="2219000" />
+      <workItem from="1583755465844" duration="602000" />
+      <workItem from="1583903696727" duration="4582000" />
+      <workItem from="1583908846750" duration="1309000" />
+      <workItem from="1584004146497" duration="26000" />
+      <workItem from="1584873809460" duration="11098000" />
+      <workItem from="1585051895451" duration="13000" />
+      <workItem from="1585158710961" duration="764000" />
+      <workItem from="1585234139078" duration="8738000" />
+      <workItem from="1585573491931" duration="624000" />
+      <workItem from="1586015021494" duration="3678000" />
+      <workItem from="1586077809436" duration="338000" />
+      <workItem from="1586097220077" duration="5920000" />
+      <workItem from="1586103942529" duration="1750000" />
+      <workItem from="1586178548824" duration="5546000" />
+      <workItem from="1586252781303" duration="596000" />
+      <workItem from="1586276772934" duration="7044000" />
+      <workItem from="1586341988734" duration="11037000" />
+      <workItem from="1586418238122" duration="4118000" />
+      <workItem from="1586429845469" duration="256000" />
+      <workItem from="1586430125814" duration="1499000" />
+      <workItem from="1586431855466" duration="69000" />
+      <workItem from="1586432037391" duration="5801000" />
+      <workItem from="1586442668186" duration="3351000" />
+      <workItem from="1586446118590" duration="172000" />
+      <workItem from="1586521063570" duration="8275000" />
+      <workItem from="1586530776158" duration="8160000" />
+      <workItem from="1586544850677" duration="8000" />
+      <workItem from="1586599216159" duration="6146000" />
+      <workItem from="1586676498202" duration="29000" />
+      <workItem from="1586766897983" duration="19003000" />
+      <workItem from="1586851701500" duration="7000" />
+      <workItem from="1586888388903" duration="24000" />
+      <workItem from="1586948226430" duration="1261000" />
+      <workItem from="1586975816398" duration="5747000" />
+      <workItem from="1587027129213" duration="16791000" />
+      <workItem from="1587138346205" duration="14571000" />
+      <workItem from="1587203236512" duration="28537000" />
+      <workItem from="1587276193547" duration="4809000" />
+      <workItem from="1587309722695" duration="4430000" />
+      <workItem from="1587407271883" duration="8000" />
+      <workItem from="1587459638862" duration="146000" />
+      <workItem from="1587554708989" duration="1128000" />
+      <workItem from="1587573808721" duration="12000" />
+      <workItem from="1587619000112" duration="27000" />
+      <workItem from="1587634427596" duration="2637000" />
+      <workItem from="1587649019392" duration="16000" />
+      <workItem from="1587713304159" duration="28429000" />
+      <workItem from="1587757937948" duration="2963000" />
+      <workItem from="1587814756369" duration="10000" />
+      <workItem from="1588319006775" duration="3076000" />
+      <workItem from="1588322749034" duration="12911000" />
+      <workItem from="1588425552330" duration="499000" />
+    </task>
+    <task id="LOCAL-00001" summary="Init commit">
+      <created>1586430195504</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586430195504</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Init commit">
+      <created>1586430377363</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586430377363</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Init commit">
+      <created>1586431166370</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586431166370</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Init commit">
+      <created>1586431259927</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586431259927</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Init commit1">
+      <created>1586431391725</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586431391725</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Still in dev">
+      <created>1586442722103</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586442722103</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Ready for tests">
+      <created>1586601493640</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586601493640</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Done implementing hierarchy">
+      <created>1586807366380</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586807366380</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Created FileDialog&#10;Removed onTfValueChanged in IntegerComponent">
+      <created>1586977805327</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586977805327</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Done fx for FileDialog">
+      <created>1586980878860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586980878861</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Done BinarySerializer">
+      <created>1587049813617</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587049813617</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed serialization in BinarySerializer;&#10;Completed JsonSerializer">
+      <created>1587207892720</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587207892720</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Done BinarySerializer, JsonSerializer, TextSerializer">
+      <created>1587222111099</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587222111099</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Done implementing serializers&#10;Fixed issue with constructor call in SerializersHandler for TextSerializer">
+      <created>1587223797349</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587223797349</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fixed combobox initialization">
+      <created>1587224518489</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587224518489</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed Saving of LocalDate in JsonSerializer&#10;Added success windows after saving/loading files">
+      <created>1587236531834</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587236531834</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Completed file saving tests">
+      <created>1587237422956</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587237422956</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Replaced serializer and deserializer for LocalData with self-made ones (not using com.fasterxml.jackson.datatype)">
+      <created>1587283166339</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587283166339</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Created Base32">
+      <created>1587732826656</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587732826656</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Done Base32">
+      <created>1587744450555</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1587744450555</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Done Base">
+      <created>1587744824677</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587744824677</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Done implementing plugins support.&#10;Rearranged file structure in fx folder.&#10;Completed plugin Base32 and Base64.&#10;Fixed some minor bugs.">
+      <created>1588329816988</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1588329816988</updated>
+    </task>
+    <task id="LOCAL-00023" summary="TextSerializer: fixed loading nested object; added ending comma after an object on saving">
+      <created>1588333958875</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1588333958875</updated>
+    </task>
+    <task id="LOCAL-00024" summary="TextSerializer: fixed loading nested object; added ending comma after an object on saving">
+      <created>1588334497894</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1588334497895</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Minor fixes">
+      <created>1588334782527</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1588334782527</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Removed plugins sources and inserted compiled plugins files to recources/plugins folder">
+      <created>1588335307390</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1588335307390</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+    <MESSAGE value="Init commit" />
+    <MESSAGE value="Init commit1" />
+    <MESSAGE value="Still in dev" />
+    <MESSAGE value="Ready for tests" />
+    <MESSAGE value="Done implementing hierarchy" />
+    <MESSAGE value="Created FileDialog&#10;Removed onTfValueChanged in IntegerComponent" />
+    <MESSAGE value="Done fx for FileDialog" />
+    <MESSAGE value="Done BinarySerializer" />
+    <MESSAGE value="Fixed serialization in BinarySerializer;&#10;Completed JsonSerializer" />
+    <MESSAGE value="Done BinarySerializer, JsonSerializer, TextSerializer" />
+    <MESSAGE value="Done implementing serializers&#10;Fixed issue with constructor call in SerializersHandler for TextSerializer" />
+    <MESSAGE value="Fixed combobox initialization" />
+    <MESSAGE value="Fixed Saving of LocalDate in JsonSerializer&#10;Added success windows after saving/loading files" />
+    <MESSAGE value="Completed file saving tests" />
+    <MESSAGE value="Replaced serializer and deserializer for LocalData with self-made ones (not using com.fasterxml.jackson.datatype)" />
+    <MESSAGE value="Created Base32" />
+    <MESSAGE value="Done Base32" />
+    <MESSAGE value="Done Base" />
+    <MESSAGE value="Done implementing plugins support.&#10;Rearranged file structure in fx folder.&#10;Completed plugin Base32 and Base64.&#10;Fixed some minor bugs." />
+    <MESSAGE value="TextSerializer: fixed loading nested object; added ending comma after an object on saving" />
+    <MESSAGE value="Minor fixes" />
+    <MESSAGE value="Removed plugins sources and inserted compiled plugins files to recources/plugins folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed plugins sources and inserted compiled plugins files to recources/plugins folder" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="392" y="91" key="#Project_Structure" timestamp="1587316565277">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="392" y="91" key="#Project_Structure/62.0.1474.864@62.0.1474.864" timestamp="1587316565277" />
+    <state x="254" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587634575318">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="254" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1474.864@62.0.1474.864" timestamp="1587634575318" />
+    <state x="542" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587728505152">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="542" y="234" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1474.864@62.0.1474.864" timestamp="1587728505152" />
+    <state x="605" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1588324155959">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="605" y="133" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864@62.0.1474.864" timestamp="1588324155959" />
+    <state x="529" y="215" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586353692672">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="529" y="215" key="#com.intellij.ide.util.TreeClassChooserDialog/62.0.1474.864@62.0.1474.864" timestamp="1586353692672" />
+    <state x="480" y="166" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586431900025">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="480" y="166" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/62.0.1474.864@62.0.1474.864" timestamp="1586431900025" />
+    <state x="485" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588327969009">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="485" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/62.0.1474.864@62.0.1474.864" timestamp="1588327969009" />
+    <state x="588" y="290" width="473" height="295" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588327948917">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="588" y="290" width="473" height="295" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/62.0.1474.864@62.0.1474.864" timestamp="1588327948917" />
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587219680024">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="412" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1474.864@62.0.1474.864" timestamp="1587219680024" />
+    <state x="530" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587219563062">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1474.864@62.0.1474.864" timestamp="1587219563062" />
+    <state x="387" y="99" key="#plugins_in_TextHierarchy" timestamp="1587713515914">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="387" y="99" key="#plugins_in_TextHierarchy/62.0.1474.864@62.0.1474.864" timestamp="1587713515914" />
+    <state x="62" y="0" width="1474" height="864" key="CommitChangelistDialog2" timestamp="1588335306275">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="62" y="0" width="1474" height="864" key="CommitChangelistDialog2/62.0.1474.864@62.0.1474.864" timestamp="1588335306275" />
+    <state x="118" y="422" width="1288" height="678" key="DiffContextDialog" timestamp="1587740416504">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="118" y="422" width="1288" height="678" key="DiffContextDialog/62.0.1474.864@62.0.1474.864" timestamp="1587740416504" />
+    <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1587745411596">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1587745411596" />
+    <state x="663" y="324" width="593" height="215" key="Github.ShareDialog" timestamp="1586430799134">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="663" y="324" width="593" height="215" key="Github.ShareDialog/62.0.1474.864@62.0.1474.864" timestamp="1586430799134" />
+    <state x="592" y="135" key="Github.UntrackedFilesDialog" timestamp="1586428818538">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="592" y="135" key="Github.UntrackedFilesDialog/62.0.1474.864@62.0.1474.864" timestamp="1586428818538" />
+    <state width="1431" height="297" key="GridCell.Tab.0.bottom" timestamp="1588335672814">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1588335672814" />
+    <state width="1431" height="297" key="GridCell.Tab.0.center" timestamp="1588335672814">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1588335672814" />
+    <state width="1431" height="297" key="GridCell.Tab.0.left" timestamp="1588335672813">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1588335672813" />
+    <state width="1431" height="297" key="GridCell.Tab.0.right" timestamp="1588335672814">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1588335672814" />
+    <state width="1431" height="297" key="GridCell.Tab.1.bottom" timestamp="1588335672815">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1588335672815" />
+    <state width="1431" height="297" key="GridCell.Tab.1.center" timestamp="1588335672814">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1588335672814" />
+    <state width="1431" height="297" key="GridCell.Tab.1.left" timestamp="1588335672814">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1588335672814" />
+    <state width="1431" height="297" key="GridCell.Tab.1.right" timestamp="1588335672814">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="1431" height="297" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1588335672814" />
+    <state x="330" y="87" key="Maven.ArtifactSearchDialog" timestamp="1583908130352">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="330" y="87" key="Maven.ArtifactSearchDialog/62.0.1474.864@62.0.1474.864" timestamp="1583908130352" />
+    <state x="585" y="142" key="RollbackChangesDialog" timestamp="1587716240541">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="585" y="142" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1587716240541" />
+    <state x="301" y="14" key="SettingsEditor" timestamp="1587231561894">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="301" y="14" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1587231561894" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1588335364111">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1588335364111" />
+    <state x="601" y="209" key="chooseDestDirectoryDialog" timestamp="1586787843116">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="601" y="209" key="chooseDestDirectoryDialog/62.0.1474.864@62.0.1474.864" timestamp="1586787843116" />
+    <state x="155" y="93" width="1288" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586419115947">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="155" y="93" width="1288" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/62.0.1474.864@62.0.1474.864" timestamp="1586419115947" />
+    <state x="488" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1584004148449">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="488" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864@62.0.1474.864" timestamp="1584004148448" />
+    <state x="601" y="166" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1586430938985">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="601" y="166" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/62.0.1474.864@62.0.1474.864" timestamp="1586430938985" />
+    <state x="602" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586527009931">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="602" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1474.864@62.0.1474.864" timestamp="1586527009931" />
+    <state x="571" y="134" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587737562733">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="571" y="134" key="com.intellij.testIntegration.createTest.CreateTestDialog/62.0.1474.864@62.0.1474.864" timestamp="1587737562733" />
+    <state x="530" y="195" key="extract.method.dialog" timestamp="1586980241662">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="195" key="extract.method.dialog/62.0.1474.864@62.0.1474.864" timestamp="1586980241662" />
+    <state x="240" y="0" key="new project wizard" timestamp="1588426052337">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="240" y="0" key="new project wizard/62.0.1474.864@62.0.1474.864" timestamp="1588426052337" />
+    <state x="456" y="197" key="run.anything.popup" timestamp="1587150771379">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="456" y="197" key="run.anything.popup/62.0.1474.864@62.0.1474.864" timestamp="1587150771379" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1588322725469">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1588322725469" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fx/windows/mainWindow/MainWindowController.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fx/windows/mainWindow/MainWindowController.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fx/windows/mainWindow/MainWindowController.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/serializers/TextSerializer.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/serializers/TextSerializer.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="serializer.serialize(new HierarchyObject[]{new Newspaper(), new Text()})" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="fieldNameFieldMap.isEmpty()" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
