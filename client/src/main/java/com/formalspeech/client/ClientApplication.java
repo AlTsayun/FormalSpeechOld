@@ -1,5 +1,6 @@
-package com.formalspeech.server;
-import com.formalspeech.server.fx.windows.mainWindow.MainWindowController;
+package com.formalspeech.client;
+
+import com.formalspeech.client.fx.windows.mainWindow.MainWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +11,7 @@ import java.net.URL;
 
 
 //--module-path "D:\Programs\Java\javafx-sdk-11.0.2\lib" --add-modules=javafx.controls,javafx.fxml
-public class ServerApplication extends Application{
+public class ClientApplication extends Application{
     public static void main(String[] args) {
         launch();
     }
@@ -20,7 +21,7 @@ public class ServerApplication extends Application{
         URL resource = MainWindowController.class.getResource("mainWindow.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
-        stage.setTitle("FormalSpeech Server");
+        stage.setTitle("FormalSpeech Client");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="625.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.formalspeech.server.fx.windows.mainWindow.MainWindowController">
+   <children>
+      <VBox layoutY="-6.0" prefWidth="860.0">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="860.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onSendFormClicked" text="Send form" />
+                        <MenuItem mnemonicParsing="false" onAction="#onNewFormClicked" text="New form" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                    <MenuItem mnemonicParsing="false" onAction="#onExitClicked" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onNewFormClicked" text="New form" />
+                        <MenuItem disable="true" mnemonicParsing="false" onAction="#onEditFormClicked" text="Edit form" />
+                    <MenuItem mnemonicParsing="false" onAction="#onDeleteFormClicked" text="Delete form" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Tools">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Network service">
+                           <items>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onNetworkServiceEnableClicked" text="Enabled">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tgMainMenuNetworkServiceActivation" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onNetworkServiceDisableClicked" selected="true" text="Disabled" toggleGroup="$tgMainMenuNetworkServiceActivation" />
+                           </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Users">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Find">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#onFindUserByEmailClicked" text="by email" />
+                              <MenuItem mnemonicParsing="false" onAction="#onFindUserByLoginClicked" text="by login" />
+                          </items>
+                        </Menu>
+                      <MenuItem mnemonicParsing="false" onAction="#onNewUserClicked" text="New user" />
+                        <MenuItem mnemonicParsing="false" onAction="#onDeleteUserClicked" text="Delete user" />
+                        <MenuItem mnemonicParsing="false" onAction="#onShowActiveUsersClicked" text="Show active users" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onAboutClicked" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TabPane fx:id="tpMainWindow" prefHeight="600.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="20.0" tabMinHeight="20.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

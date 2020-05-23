@@ -1,6 +1,6 @@
 package com.formalspeech.client.fx.windows.editWindow;
 
-import com.formalspeech.formessentials.Form;
+import com.formalspeech.formEssentials.Form;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

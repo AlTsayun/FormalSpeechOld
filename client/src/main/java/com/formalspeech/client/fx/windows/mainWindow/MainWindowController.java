@@ -1,9 +1,9 @@
 package com.formalspeech.client.fx.windows.mainWindow;
 
-import com.formalspeech.client.fx.windows.AlertWrapper;
-import com.formalspeech.formessentials.Form;
-import com.formalspeech.formessentials.fxml.FXMLFileLoader;
-import com.formalspeech.formessentials.fxml.FXMLFileLoaderResponse;
+import com.formalspeech.fxmlEssentials.AlertWrapper;
+import com.formalspeech.formEssentials.Form;
+import com.formalspeech.fxmlEssentials.FXMLFileLoader;
+import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
 import com.formalspeech.client.fx.windows.editWindow.EditWindowConstructorParam;
 import com.formalspeech.client.fx.windows.editWindow.EditWindowController;
 import javafx.beans.binding.Bindings;
