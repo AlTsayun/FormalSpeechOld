@@ -1,5 +1,6 @@
 package com.formalspeech.client.fx.windows.editWindow;
 
+import com.formalspeech.formEssentials.FormHandler;
 import com.formalspeech.formEssentials.annotations.ComponentAnnotation;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.formEssentials.Form;
@@ -78,7 +79,7 @@ public class EditWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
-            loadedComponents = loadComponents(formToFill);
+            loadedComponents = FormHandler.loadComponents(formToFill).toArray(new Component[0]);
             ArrayList<Pane> loadedPanes = new ArrayList<>();
             Arrays.stream(loadedComponents).forEach((Component) ->{
                 loadedPanes.add(Component.getLoadedPane());
@@ -89,19 +90,5 @@ public class EditWindowController implements Initializable {
             AlertWrapper.showAlert(Alert.AlertType.ERROR, "Cannot load components of the form", "Cannot load components of the form");
             ((Stage) editList.getScene().getWindow()).close();
         }
-    }
-
-    private Component[] loadComponents(Form formToFill) throws IOException {
-        List<Component> components = new ArrayList<>();
-        for (Class<Component> componentClass:
-        formToFill.getComponentsClasses()){
-            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(
-                    componentClass.getAnnotation(ComponentAnnotation.class).fxmlFileName(),
-                    componentClass);
-            ((Component) loaderResponse.controller).setLoadedPane((Pane) loaderResponse.loadedObject);
-            components.add((Component) loaderResponse.controller);
-        }
-        return (Component[]) components.toArray();
-
     }
 }

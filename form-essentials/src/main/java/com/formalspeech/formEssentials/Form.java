@@ -4,8 +4,11 @@ import com.formalspeech.formEssentials.components.Component;
 
 public class Form {
 
+    //don't forget to switch state variable
+
     private String name;
     private Class<Component>[] componentsClasses;
+    private FormState state = FormState.inCreation;
     private Component[] filledComponents;
 
     public Form(String name, Class<Component>[] componentsClasses) {

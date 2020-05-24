@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.formalspeech.server.fx.windows.mainWindow.createFormPane.CreateFormPaneController">
+<AnchorPane prefHeight="600.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.formalspeech.server.fx.windows.mainWindow.MainWindowCreateFormTabPane">
    <children>
       <HBox prefWidth="832.0">
          <children>
@@ -73,11 +73,11 @@
                </Pane>
                </children>
             </VBox>
-            <VBox>
+            <VBox fx:id="vbPreview" prefHeight="600.0" prefWidth="420.0">
                <children>
                   <Pane prefHeight="25.0" prefWidth="420.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="25.0" prefWidth="420.0">
+                        <HBox alignment="CENTER" layoutY="4.0" prefWidth="420.0">
                            <children>
                               <Label style="-fx-text-fill: grey;" text="Preview:" textAlignment="CENTER">
                                  <font>
@@ -88,9 +88,7 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <VBox fx:id="vbPreview" prefWidth="420.0" />
-               </children>
-            </VBox>
+               </children></VBox>
          </children>
       </HBox>
    </children>

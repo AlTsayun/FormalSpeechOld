@@ -1,14 +1,17 @@
 package com.formalspeech.server.fx.windows.mainWindow;
 
+import com.formalspeech.formEssentials.components.ComponentsHandler;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.fxmlEssentials.FXMLFileLoader;
 import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
+import com.formalspeech.server.fx.windows.mainWindow.createFormPane.CreateFormPaneConstructorParam;
 import com.formalspeech.server.fx.windows.mainWindow.createFormPane.CreateFormPaneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -25,6 +28,7 @@ public class MainWindowController implements Initializable {
     @FXML
     private TabPane tpMainWindow;
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onNewFormClicked(new ActionEvent());
@@ -58,11 +62,13 @@ public class MainWindowController implements Initializable {
     @FXML
     void onNewFormClicked(ActionEvent event) {
         try {
-            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(CreateFormPaneController.getFXMLFileName(), CreateFormPaneController.class);
-            Tab tab = new Tab("New form", (Node) loaderResponse.loadedObject);
+            Tab tab = new Tab("New form");
+            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(CreateFormPaneController.getFXMLFileName(), CreateFormPaneController.class, new CreateFormPaneConstructorParam(tab));
+            tab.setContent((Node) loaderResponse.loadedObject);
             tpMainWindow.getTabs().add(tab);
         } catch (IOException e){
-            log.info("Error while loading MainWindowCreateFormTabPane!");
+            log.info("Error while loading createFormPane!");
+            e.printStackTrace();
         }
     }
 
