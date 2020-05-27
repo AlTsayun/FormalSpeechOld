@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -20,8 +21,42 @@
                <children>
                   <HBox>
                      <children>
-                        <ListView fx:id="lvAvailableComponents" prefHeight="520.0" prefWidth="206.0" />
-                        <ListView fx:id="lvSelectedComponents" prefHeight="520.0" prefWidth="206.0" />
+                        <VBox>
+                           <children>
+                              <Pane prefHeight="25.0" prefWidth="206.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="25.0" prefWidth="206.0">
+                                       <children>
+                                          <Label style="-fx-text-fill: grey;" text="Available components:" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </Pane>
+                              <ListView fx:id="lvAvailableComponents" prefHeight="495.0" prefWidth="206.0" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Pane prefHeight="25.0" prefWidth="206.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="25.0" prefWidth="206.0">
+                                       <children>
+                                          <Label style="-fx-text-fill: grey;" text="Components in form:" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </Pane>
+                              <ListView fx:id="lvSelectedComponents" prefHeight="495.0" prefWidth="206.0" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <Pane prefHeight="80.0" prefWidth="412.0">
@@ -30,7 +65,7 @@
                         <children>
                            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="412.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#onMoveFromSelectedClicked" text="&lt;">
+                                    <Button mnemonicParsing="false" onAction="#onRemoveFromSelectedClicked" text="&lt;">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -44,12 +79,12 @@
                            </HBox>
                            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="412.0">
                               <children>
-                                 <Label text="File name:">
+                                 <Label text="Form name:">
                                     <HBox.margin>
                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                     </HBox.margin>
                                  </Label>
-                                    <TextField fx:id="tfFormFileName">
+                                    <TextField fx:id="tfFormName">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
@@ -60,6 +95,7 @@
                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                     </HBox.margin>
                                  </Button>
+                                    <Button mnemonicParsing="false" onAction="#onLoadClicked" text="Load" />
                                     <Button mnemonicParsing="false" onAction="#onSaveClicked" text="Save">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -79,7 +115,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="25.0" prefWidth="420.0">
                            <children>
-                              <Label style="-fx-text-fill: grey;" text="Preview:" textAlignment="CENTER">
+                              <Label style="-fx-text-fill: grey;" text="Form:" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -88,7 +124,11 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <VBox fx:id="vbPreview" prefWidth="420.0" />
+                  <ScrollPane prefHeight="575.0">
+                     <content>
+                        <VBox fx:id="vbPreview" prefWidth="400.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
          </children>

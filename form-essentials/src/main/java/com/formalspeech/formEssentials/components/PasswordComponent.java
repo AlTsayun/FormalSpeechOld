@@ -4,13 +4,13 @@ import com.formalspeech.formEssentials.annotations.ComponentAnnotation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@ComponentAnnotation(label = "Text field for login", identifier = "loginComponent")
-public class LoginComponent extends ComponentToFill<LoginComponentController,String> {
+@ComponentAnnotation(label = "Text field for password", identifier = "passwordComponent")
+public class PasswordComponent extends ComponentToFill<PasswordComponentController,String> {
 
 
-    public LoginComponent(String convertedToStringValue) {
+    public PasswordComponent(String convertedToStringValue) {
         super(convertedToStringValue);
-        controllerClass = LoginComponentController.class;
+        controllerClass = PasswordComponentController.class;
     }
 
     @Override
@@ -25,9 +25,10 @@ public class LoginComponent extends ComponentToFill<LoginComponentController,Str
 
     @Override
     protected boolean checkValueForEditing(String value) {
-        Pattern pattern = Pattern.compile("[a-z0-9-]+", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(value);
-        return matcher.matches();
+//        Pattern pattern = Pattern.compile("[a-z0-9-]+", Pattern.CASE_INSENSITIVE);
+//        Matcher matcher = pattern.matcher(value);
+//        return matcher.matches();
+        return true;
     }
     @Override
     protected boolean checkValueForFilling(String value) {

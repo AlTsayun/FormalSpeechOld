@@ -4,7 +4,6 @@ import com.formalspeech.formEssentials.components.ComponentsHandler;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.fxmlEssentials.FXMLFileLoader;
 import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
-import com.formalspeech.server.fx.windows.mainWindow.createFormPane.CreateFormPaneConstructorParam;
 import com.formalspeech.server.fx.windows.mainWindow.createFormPane.CreateFormPaneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,6 +30,7 @@ public class MainWindowController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tpMainWindow.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
         onNewFormClicked(new ActionEvent());
     }
 
@@ -46,7 +46,19 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void onEditFormClicked(ActionEvent event) {
+        try {
+            Tab tab = new Tab("Editing form");
+            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(CreateFormPaneController.getFXMLFileName(), CreateFormPaneController.class, new TabPaneConstructorParam(tab));
+            tab.setContent((Node) loaderResponse.loadedObject);
+            tpMainWindow.getTabs().add(tab);
+            tpMainWindow.getSelectionModel().select(tab);
 
+            ((CreateFormPaneController) loaderResponse.controller).onLoadClicked(new ActionEvent());
+        } catch (IOException e){
+            log.info("Error while loading createFormPane!");
+            e.printStackTrace();
+
+        }
     }
 
     @FXML
@@ -63,12 +75,14 @@ public class MainWindowController implements Initializable {
     void onNewFormClicked(ActionEvent event) {
         try {
             Tab tab = new Tab("New form");
-            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(CreateFormPaneController.getFXMLFileName(), CreateFormPaneController.class, new CreateFormPaneConstructorParam(tab));
+            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(CreateFormPaneController.getFXMLFileName(), CreateFormPaneController.class, new TabPaneConstructorParam(tab));
             tab.setContent((Node) loaderResponse.loadedObject);
             tpMainWindow.getTabs().add(tab);
+            tpMainWindow.getSelectionModel().select(tab);
         } catch (IOException e){
             log.info("Error while loading createFormPane!");
             e.printStackTrace();
+
         }
     }
 

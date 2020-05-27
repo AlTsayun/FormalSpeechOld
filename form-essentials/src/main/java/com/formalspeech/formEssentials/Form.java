@@ -1,56 +1,34 @@
 package com.formalspeech.formEssentials;
 
-import com.formalspeech.formEssentials.components.Component;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Form {
+public class Form implements Serializable {
+    static public final String FORM_FILE_EXTENSION = ".frm";
+    private final String name;
+    private final ArrayList<IdentifierAndValue> componentsIdentifiersAndValues;
 
-    //don't forget to switch state variable
-
-    private String name;
-    private Class<Component>[] componentsClasses;
-    private FormState state = FormState.inCreation;
-    private Component[] filledComponents;
-
-    public Form(String name, Class<Component>[] componentsClasses) {
+    public Form(String name, ArrayList<IdentifierAndValue> componentsIdentifiersAndValues) {
         this.name = name;
-        this.componentsClasses = componentsClasses;
+        this.componentsIdentifiersAndValues = componentsIdentifiersAndValues;
     }
+
+
+    public ArrayList<IdentifierAndValue> getComponentsIdentifiersAndValues() {
+        return componentsIdentifiersAndValues;
+    }
+
+    public ArrayList<String> getComponentsIdentifiers() {
+        ArrayList<String> identifiers = new ArrayList<>();
+        for (IdentifierAndValue identifiersAndValue:
+             componentsIdentifiersAndValues) {
+            identifiers.add(identifiersAndValue.identifier);
+        }
+        return identifiers;
+    }
+
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Class<Component>[] getComponentsClasses() {
-        return componentsClasses;
-    }
-
-    public void setComponentsClasses(Class<Component>[] componentsClasses) {
-        this.componentsClasses = componentsClasses;
-    }
-
-    public Component[] getFilledComponents() {
-        return filledComponents;
-    }
-
-    public void setFilledComponents(Component[] filledComponents) {
-        this.filledComponents = filledComponents;
-    }
-
-    public String getCreateTableQuery(){
-        return null;
-//        return "CREATE TABLE IF NOT EXISTS `users` (\n" +
-//                "  `UserID` int(11) NOT NULL AUTO_INCREMENT,\n" +
-//                "  `Password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,\n" +
-//                "  `AccessLevel` int(11) NOT NULL,\n" +
-//                "  `RegistrationDate` date DEFAULT current_timestamp(),\n" +
-//                "  `Email` varchar(250) COLLATE utf8_unicode_ci NOT NULL,\n" +
-//                "  `Login` varchar(250) COLLATE utf8_unicode_ci NOT NULL,\n" +
-//                "  PRIMARY KEY (`UserID`)\n" +
-//                ") ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n" +
-//                "COMMIT;";
     }
 }

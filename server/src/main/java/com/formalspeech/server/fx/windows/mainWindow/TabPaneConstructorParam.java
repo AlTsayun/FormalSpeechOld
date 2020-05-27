@@ -1,9 +1,9 @@
-package com.formalspeech.server.fx.windows.mainWindow.userInfoPane;
+package com.formalspeech.server.fx.windows.mainWindow;
 
 import javafx.scene.control.Tab;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class UserInfoPaneConstructorParam {
+public class TabPaneConstructorParam {
     public final Tab parentTab;
 }

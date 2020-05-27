@@ -4,7 +4,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ComponentAnnotation {
-    String label();
-    String identifier();
+public @interface ControllerAnnotation {
+    String fxmlFileName();
 }

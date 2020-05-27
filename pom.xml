@@ -13,6 +13,7 @@
         <module>client</module>
         <module>form-essentials</module>
         <module>fxml-essentials</module>
+        <module>network-service</module>
     </modules>
 
     <properties>
@@ -89,6 +90,12 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
 

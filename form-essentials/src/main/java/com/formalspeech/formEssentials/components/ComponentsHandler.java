@@ -1,5 +1,8 @@
 package com.formalspeech.formEssentials.components;
 
+import com.formalspeech.formEssentials.annotations.ComponentAnnotation;
+import com.formalspeech.fxmlEssentials.FXMLFileLoader;
+import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
 import javafx.scene.layout.Pane;
 import lombok.extern.slf4j.Slf4j;
 
@@ -7,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
@@ -28,9 +33,9 @@ public class ComponentsHandler {
         classLoader = new URLClassLoader(urls);
     }
 
-    public List<Class<Component>> getAvailableComponents() throws IOException {
+    public List<Component> getAvailableComponents() throws IOException {
 
-        List<Class<Component>> componentsClasses = new ArrayList<>();
+        List<Component> components = new ArrayList<>();
 
         try (InputStream in = resourceFolder.openStream();
              BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
@@ -44,7 +49,14 @@ public class ComponentsHandler {
                         Class<?> loadedClass = classLoader.loadClass("com.formalspeech.formEssentials.components." + className);;
                         if(Component.class.isAssignableFrom(loadedClass) &&
                                 (!Component.class.equals(loadedClass))){
-                            componentsClasses.add((Class<Component>) loadedClass);
+
+
+                            try {
+                                Component component = (Component) loadedClass.getConstructor(String.class).newInstance("");
+                                components.add(component);
+                            } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+                                log.info("Error while calling  constructor of " + loadedClass.toString());
+                            }
                         }
                     } catch (ClassNotFoundException e) {
                         log.info("Failed loading \"" + className + "\"");
@@ -53,15 +65,54 @@ public class ComponentsHandler {
             }
         }
 
-        return componentsClasses;
+        return components;
     }
 
-    static public ArrayList<Pane> loadPanes(ArrayList<Component> components){
-        ArrayList<Pane> loadedPanes = new ArrayList<>();
-        components.forEach((Component) ->{
-            loadedPanes.add(Component.getLoadedPane());
-        });
-        return loadedPanes;
+    public List<Class<Component>> getAvailableComponentClasses() throws IOException{
+        List<Class<Component>> componentClasses = new ArrayList<>();
+
+        try (InputStream in = resourceFolder.openStream();
+             BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+            String resourceContent;
+
+            while ((resourceContent = reader.readLine()) != null) {
+                int pos = resourceContent.lastIndexOf(".");
+                if (resourceContent.substring(pos).equals(".class")){
+                    String className = resourceContent.substring(0, pos);
+                    try {
+                        Class<?> loadedClass = classLoader.loadClass("com.formalspeech.formEssentials.components." + className);;
+                        if(Component.class.isAssignableFrom(loadedClass) &&
+                                (!Modifier.isAbstract(loadedClass.getModifiers()))
+                        ){
+                            componentClasses.add((Class<Component>) loadedClass);
+                        }
+                    } catch (ClassNotFoundException e) {
+                        log.info("Failed loading \"" + className + "\"");
+                    }
+                }
+            }
+        }
+
+        return componentClasses;
     }
 
+    public Component getNewInstance(Class<? extends Component> componentClass, String value) throws Exception{
+
+        try {
+            return componentClass.getConstructor(String.class).newInstance(value);
+        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+            throw new Exception("Error while calling  constructor of " + componentClass.toString());
+        }
+    }
+
+    public Component getNewInstance(String componentIdentifier, String value) throws Exception{
+        List<Class<Component>> componentClasses = getAvailableComponentClasses();
+        for (Class<Component> componentClass:
+                componentClasses){
+            if (componentClass.getAnnotation(ComponentAnnotation.class).identifier().equals(componentIdentifier)){
+                return getNewInstance(componentClass, value);
+            }
+        }
+        throw new Exception("Cannot find such component!");
+    }
 }

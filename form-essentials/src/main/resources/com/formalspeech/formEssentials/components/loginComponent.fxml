@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<AnchorPane prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.formalspeech.formEssentials.components.LoginComponent">
+<AnchorPane prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.formalspeech.formEssentials.components.LoginComponentController">
    <children>
       <GridPane prefHeight="40.0" prefWidth="400.0">
          <columnConstraints>

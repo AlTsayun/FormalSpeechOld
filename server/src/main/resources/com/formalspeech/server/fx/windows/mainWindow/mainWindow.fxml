@@ -27,7 +27,7 @@
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
                         <MenuItem mnemonicParsing="false" onAction="#onNewFormClicked" text="New form" />
-                        <MenuItem disable="true" mnemonicParsing="false" onAction="#onEditFormClicked" text="Edit form" />
+                        <MenuItem mnemonicParsing="false" onAction="#onEditFormClicked" text="Edit form" />
                     <MenuItem mnemonicParsing="false" onAction="#onDeleteFormClicked" text="Delete form" />
                   </items>
                 </Menu>

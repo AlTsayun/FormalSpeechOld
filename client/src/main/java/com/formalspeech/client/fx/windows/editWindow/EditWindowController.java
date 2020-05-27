@@ -1,12 +1,9 @@
 package com.formalspeech.client.fx.windows.editWindow;
 
 import com.formalspeech.formEssentials.FormHandler;
-import com.formalspeech.formEssentials.annotations.ComponentAnnotation;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.formEssentials.Form;
-import com.formalspeech.formEssentials.components.Component;
-import com.formalspeech.fxmlEssentials.FXMLFileLoader;
-import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
+import com.formalspeech.formEssentials.components.InfoComponent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,7 +28,7 @@ public class EditWindowController implements Initializable {
 
     private final EditWindowListener listener;
 
-    private Component[] loadedComponents;
+    private InfoComponent[] loadedComponents;
 
     @FXML
     private Label lbTitle;
@@ -54,12 +51,12 @@ public class EditWindowController implements Initializable {
     @FXML
     void onBtnSaveClick(ActionEvent event) {
             boolean isFilledCorrect = true;
-            for (Component c :
+            for (InfoComponent c :
                     loadedComponents) {
                 isFilledCorrect &= c.checkValue();
             }
             if (isFilledCorrect){
-                formToFill.setFilledComponents(loadedComponents);
+                formToFill.setComponents(loadedComponents);
                 listener.sendChanges(formToFill);
                 ((Stage) btnSave.getScene().getWindow()).close();
             } else {
@@ -79,10 +76,10 @@ public class EditWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
-            loadedComponents = FormHandler.loadComponents(formToFill).toArray(new Component[0]);
+            loadedComponents = FormHandler.loadComponents(formToFill).toArray(new InfoComponent[0]);
             ArrayList<Pane> loadedPanes = new ArrayList<>();
             Arrays.stream(loadedComponents).forEach((Component) ->{
-                loadedPanes.add(Component.getLoadedPane());
+                loadedPanes.add(Component.getLoadedPaneForEditing());
             });
             editList.getChildren().setAll(loadedPanes);
             lbTitle.setText(formToFill.getName());
