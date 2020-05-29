@@ -25,6 +25,11 @@ public class LoginComponentController extends Controller<String> {
         tfValue.setStyle("-fx-border-color: red");
     }
 
+    @Override
+    public void removeIncorrectEntered() {
+        tfValue.setStyle("");
+    }
+
     public void beforeEditing() {
 
     }

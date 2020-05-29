@@ -18,12 +18,12 @@ public class InfoTextComponent extends ComponentWithInfo<InfoTextComponentContro
 
 
     @Override
-    protected String convertStringAsValue(String str) {
+    public String convertStringAsValue(String str) {
         return str;
     }
 
     @Override
-    protected String convertValueAsString(String value) {
+    public String convertValueAsString(String value) {
         return value;
     }
 

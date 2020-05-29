@@ -5,6 +5,8 @@ import com.formalspeech.formEssentials.IdentifierAndValue;
 import com.formalspeech.formEssentials.annotations.ComponentAnnotation;
 import com.formalspeech.formEssentials.components.Component;
 import com.formalspeech.formEssentials.components.ComponentsHandler;
+import com.formalspeech.formEssentials.serialization.StringSerializer;
+import com.formalspeech.formEssentials.serialization.XmlSerializer;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.server.fx.windows.mainWindow.TabPaneConstructorParam;
 import javafx.beans.binding.Bindings;
@@ -23,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -68,8 +71,11 @@ public class CreateFormPaneController implements Initializable {
                 new FileChooser.ExtensionFilter("Form files", "*" + Form.FORM_FILE_EXTENSION));
         File selectedFile = fileChooser.showOpenDialog(tfFormName.getScene().getWindow());
         if (selectedFile != null) {
-            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(selectedFile))) {
-                Form loadedForm = (Form) inputStream.readObject();
+            try {
+                StringSerializer<Form> serializer= new XmlSerializer<>(Form.class);
+                String data = new String(Files.readAllBytes(selectedFile.toPath()));
+                Form loadedForm = serializer.readValueFromString(data);
+
                 tfFormName.setText(loadedForm.getName());
                 ComponentsHandler componentsHandler = new ComponentsHandler();
                 ArrayList<IdentifierAndValue> componentsIdentifiersAndValues = loadedForm.getComponentsIdentifiersAndValues();
@@ -79,8 +85,12 @@ public class CreateFormPaneController implements Initializable {
                     components.add(componentsHandler.getNewInstance(identifierAndValue.identifier, identifierAndValue.value));
                 }
                 lvSelectedComponents.getItems().setAll(components);
-            } catch (Exception ex) {
+            } catch (IOException e) {
+                e.printStackTrace();
                 AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot load file!");
+            } catch (IllegalArgumentException e){
+                e.printStackTrace();
+                AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot properly deserialize form!");
             }
         }
     }
@@ -117,12 +127,18 @@ public class CreateFormPaneController implements Initializable {
 
 
                         log.info("saving " + fullFileName);
-                        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(fullFileName))) {
-                            outputStream.writeObject(formToSave);
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fullFileName))) {
+
+                            StringSerializer<Form> serializer = new XmlSerializer<>(Form.class);
+                            String data = serializer.writeAsString(formToSave);
+                            writer.write(data);
                             AlertWrapper.showAlert(Alert.AlertType.INFORMATION, "Success", "File " + fullFileName + " saved correctly!");
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Wrong data entered!");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Error while writing to file!");
+                        } catch (IllegalArgumentException e){
+                            e.printStackTrace();
+                            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot properly serialize the form!");
                         }
                     }
                     tfFormName.setStyle("");

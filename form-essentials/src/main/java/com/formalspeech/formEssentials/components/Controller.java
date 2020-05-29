@@ -17,6 +17,7 @@ public abstract class Controller<ValueType> implements Initializable {
         return value;
     }
     abstract public void showIncorrectEntered();
+    abstract public void removeIncorrectEntered();
 
 
 }

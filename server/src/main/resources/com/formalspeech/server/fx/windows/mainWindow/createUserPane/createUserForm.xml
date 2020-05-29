@@ -1,0 +1,42 @@
+<Form>
+    <name>createUserForm</name>
+    <componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>loginComponent</identifier>
+            <value></value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>emailComponent</identifier>
+            <value></value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>passwordComponent</identifier>
+            <value></value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>infoTextComponent</identifier>
+            <value>Repeat the password</value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>passwordComponent</identifier>
+            <value></value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>infoTextComponent</identifier>
+            <value>Enter access level</value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>integerComponent</identifier>
+            <value>0</value>
+        </componentsIdentifiersAndValues>
+    </componentsIdentifiersAndValues>
+    <componentsIdentifiers>
+        <componentsIdentifiers>loginComponent</componentsIdentifiers>
+        <componentsIdentifiers>emailComponent</componentsIdentifiers>
+        <componentsIdentifiers>passwordComponent</componentsIdentifiers>
+        <componentsIdentifiers>infoTextComponent</componentsIdentifiers>
+        <componentsIdentifiers>passwordComponent</componentsIdentifiers>
+        <componentsIdentifiers>infoTextComponent</componentsIdentifiers>
+        <componentsIdentifiers>integerComponent</componentsIdentifiers>
+    </componentsIdentifiers>
+</Form>

@@ -5,6 +5,7 @@ import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.fxmlEssentials.FXMLFileLoader;
 import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
 import com.formalspeech.server.fx.windows.mainWindow.createFormPane.CreateFormPaneController;
+import com.formalspeech.server.fx.windows.mainWindow.createUserPane.CreateUserPaneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,12 +63,12 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    void onNetworkServiceDisableClicked(ActionEvent event) {
+    void onNetworkServiceEnableClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onNetworkServiceEnableClicked(ActionEvent event) {
+    void onNetworkServiceDisableClicked(ActionEvent event) {
 
     }
 
@@ -114,8 +115,25 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void onNewUserClicked(ActionEvent event) {
+        try {
+            Tab tab = new Tab("New user");
+            FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML(CreateUserPaneController.getFXMLFileName(), CreateUserPaneController.class, new TabPaneConstructorParam(tab));
+            tab.setContent((Node) loaderResponse.loadedObject);
+            tpMainWindow.getTabs().add(tab);
+            tpMainWindow.getSelectionModel().select(tab);
+        } catch (IOException e){
+            log.info("Error while loading CreatUserPane!");
+            e.printStackTrace();
+
+        }
+    }
+
+
+    @FXML
+    void onShowUsersClicked(ActionEvent event) {
 
     }
+
     @FXML
     void onExitClicked(ActionEvent event) {
         if (AlertWrapper.showConfirmationDialog("Exit", "All unsaved data will be lost. Continue?")){

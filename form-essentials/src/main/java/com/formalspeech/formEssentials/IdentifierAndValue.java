@@ -1,12 +1,10 @@
 package com.formalspeech.formEssentials;
 
-import lombok.RequiredArgsConstructor;
+import lombok.Data;
 
-import java.io.Serializable;
-
-@RequiredArgsConstructor
-public class IdentifierAndValue implements Serializable {
-    public final String identifier;
-    public final String value;
+@Data
+public class IdentifierAndValue {
+    final public String identifier;
+    final public String value;
 
 }

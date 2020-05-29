@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="network-service" />
-        <module name="client" />
-        <module name="server" />
-        <module name="fxml-essentials" />
         <module name="form-essentials" />
+        <module name="network-service" />
+        <module name="fxml-essentials" />
+        <module name="server" />
+        <module name="database-service" />
+        <module name="client" />
       </profile>
     </annotationProcessing>
   </component>

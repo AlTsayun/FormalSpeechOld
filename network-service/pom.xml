@@ -11,5 +11,41 @@
 
     <artifactId>network-service</artifactId>
 
+<dependencies>
+    <dependency>
+        <groupId>com.formalspeech</groupId>
+        <artifactId>form-essentials</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.formalspeech</groupId>
+        <artifactId>database-service</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 
 </project>

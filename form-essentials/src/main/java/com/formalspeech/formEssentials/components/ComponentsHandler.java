@@ -48,8 +48,7 @@ public class ComponentsHandler {
                     try {
                         Class<?> loadedClass = classLoader.loadClass("com.formalspeech.formEssentials.components." + className);;
                         if(Component.class.isAssignableFrom(loadedClass) &&
-                                (!Component.class.equals(loadedClass))){
-
+                                (!Modifier.isAbstract(loadedClass.getModifiers()))){
 
                             try {
                                 Component component = (Component) loadedClass.getConstructor(String.class).newInstance("");
@@ -96,23 +95,27 @@ public class ComponentsHandler {
         return componentClasses;
     }
 
-    public Component getNewInstance(Class<? extends Component> componentClass, String value) throws Exception{
+    public Component getNewInstance(Class<? extends Component> componentClass, String value) throws IllegalArgumentException{
 
         try {
             return componentClass.getConstructor(String.class).newInstance(value);
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-            throw new Exception("Error while calling  constructor of " + componentClass.toString());
+            throw new IllegalArgumentException("Error while calling  constructor of " + componentClass.toString());
         }
     }
 
-    public Component getNewInstance(String componentIdentifier, String value) throws Exception{
-        List<Class<Component>> componentClasses = getAvailableComponentClasses();
-        for (Class<Component> componentClass:
-                componentClasses){
-            if (componentClass.getAnnotation(ComponentAnnotation.class).identifier().equals(componentIdentifier)){
-                return getNewInstance(componentClass, value);
+    public Component getNewInstance(String componentIdentifier, String value) throws IllegalArgumentException{
+        try {
+            List<Class<Component>> componentClasses = getAvailableComponentClasses();
+            for (Class<Component> componentClass:
+                    componentClasses){
+                if (componentClass.getAnnotation(ComponentAnnotation.class).identifier().equals(componentIdentifier)){
+                    return getNewInstance(componentClass, value);
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        throw new Exception("Cannot find such component!");
+        throw new IllegalArgumentException("Cannot find such component!");
     }
 }

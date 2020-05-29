@@ -14,24 +14,24 @@ public class LoginComponent extends ComponentToFill<LoginComponentController,Str
     }
 
     @Override
-    protected String convertStringAsValue(String str) {
+    public String convertStringAsValue(String str) {
         return str;
     }
 
     @Override
-    protected String convertValueAsString(String value) {
+    public String convertValueAsString(String value) {
         return value;
     }
 
     @Override
-    protected boolean checkValueForEditing(String value) {
+    protected boolean checkValueForFilling(String value) {
         Pattern pattern = Pattern.compile("[a-z0-9-]+", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(value);
         return matcher.matches();
     }
     @Override
-    protected boolean checkValueForFilling(String value) {
-        return value.equals("") || checkValueForEditing(value);
+    protected boolean checkValueForEditing(String value) {
+        return value.equals("") || checkValueForFilling(value);
     }
 
 

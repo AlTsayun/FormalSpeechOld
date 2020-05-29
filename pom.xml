@@ -14,6 +14,7 @@
         <module>form-essentials</module>
         <module>fxml-essentials</module>
         <module>network-service</module>
+        <module>database-service</module>
     </modules>
 
     <properties>
@@ -26,6 +27,7 @@
         <lombok.version>1.18.12</lombok.version>
         <javafx.version>15-ea+3</javafx.version>
         <jackson.version>2.10.3</jackson.version>
+        <mysql.version>8.0.20</mysql.version>
 
     </properties>
 
@@ -51,6 +53,20 @@
                 <artifactId>server</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.formalspeech</groupId>
+                <artifactId>network-service</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.formalspeech</groupId>
+                <artifactId>database-service</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+
+
+
 
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -104,6 +120,12 @@
                 <artifactId>junit-jupiter</artifactId>
                 <version>RELEASE</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

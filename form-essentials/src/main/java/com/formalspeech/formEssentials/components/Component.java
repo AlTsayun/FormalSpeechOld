@@ -19,13 +19,16 @@ public abstract class Component<ControllerType extends Controller, ValueType> im
     protected ValueType value;
     protected boolean isEditing;
 
-    protected abstract ValueType convertStringAsValue(String str);
-    protected abstract String convertValueAsString(ValueType value);
+    public abstract ValueType convertStringAsValue(String str);
+    public abstract String convertValueAsString(ValueType value);
     protected abstract boolean checkValueForEditing(ValueType value);
     protected abstract boolean checkValueForFilling(ValueType value);
 
     protected void showIncorrectEntered(){
         controller.showIncorrectEntered();
+    }
+    protected void removeIncorrectEntered(){
+        controller.removeIncorrectEntered();
     }
 
     public Component(String convertedToStringValue) {
@@ -54,6 +57,7 @@ public abstract class Component<ControllerType extends Controller, ValueType> im
             if ((isEditing && checkValueForEditing(valueToSave)) ||
                     ((!isEditing) && checkValueForFilling(valueToSave))) {
                 value = valueToSave;
+                removeIncorrectEntered();
             } else {
                 showIncorrectEntered();
                 throw new IOException("Incorrect data entered");

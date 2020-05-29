@@ -21,8 +21,10 @@ public class InfoTextComponentController extends Controller<String> {
     }
 
     @Override
-    public void showIncorrectEntered() {
-
+    public void showIncorrectEntered() { }
+    @Override
+    public void removeIncorrectEntered() {
+//        taInfoText.setStyle("");
     }
 
     public void beforeEditing() {

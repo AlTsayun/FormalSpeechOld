@@ -24,6 +24,11 @@ public class PasswordComponentController extends Controller<String> {
         pfValue.setStyle("-fx-border-color: red");
     }
 
+    @Override
+    public void removeIncorrectEntered() {
+        pfValue.setStyle("");
+    }
+
     public void beforeEditing() {
 
     }
