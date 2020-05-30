@@ -1,0 +1,17 @@
+<Form>
+    <name>logInForm</name>
+    <componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>loginComponent</identifier>
+            <value></value>
+        </componentsIdentifiersAndValues>
+        <componentsIdentifiersAndValues>
+            <identifier>passwordComponent</identifier>
+            <value></value>
+        </componentsIdentifiersAndValues>
+    </componentsIdentifiersAndValues>
+    <componentsIdentifiers>
+        <componentsIdentifiers>loginComponent</componentsIdentifiers>
+        <componentsIdentifiers>passwordComponent</componentsIdentifiers>
+    </componentsIdentifiers>
+</Form>

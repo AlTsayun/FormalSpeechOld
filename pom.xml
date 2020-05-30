@@ -28,6 +28,7 @@
         <javafx.version>15-ea+3</javafx.version>
         <jackson.version>2.10.3</jackson.version>
         <mysql.version>8.0.20</mysql.version>
+        <guava.version>29.0-jre</guava.version>
 
     </properties>
 
@@ -67,7 +68,11 @@
 
 
 
-
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>

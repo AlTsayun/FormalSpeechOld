@@ -4,7 +4,6 @@ import com.formalspeech.databaseService.User;
 import com.formalspeech.databaseService.Users;
 import com.formalspeech.formEssentials.Form;
 import com.formalspeech.formEssentials.IdentifierAndValue;
-import com.formalspeech.formEssentials.annotations.ComponentAnnotation;
 import com.formalspeech.formEssentials.components.Component;
 import com.formalspeech.formEssentials.components.ComponentsHandler;
 import com.formalspeech.formEssentials.serialization.StringSerializer;
@@ -20,7 +19,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lombok.extern.slf4j.Slf4j;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -33,6 +31,7 @@ import java.util.List;
 
 @Slf4j
 public class CreateUserPaneController implements Initializable {
+    private final String FORM_FILE_NAME = "createUserForm.xml";
 
     @FXML
     private VBox vbComponents;
@@ -40,6 +39,7 @@ public class CreateUserPaneController implements Initializable {
     private final Tab parentTab;
 
     private ArrayList<Component> components;
+
 
 
     public CreateUserPaneController(TabPaneConstructorParam param) {
@@ -99,7 +99,7 @@ public class CreateUserPaneController implements Initializable {
         components = new ArrayList<>();
         try {
             StringSerializer<Form> serializer= new XmlSerializer<>(Form.class);
-            String data = new String(Files.readAllBytes(Path.of(CreateUserPaneController.class.getResource("createUserForm.xml").toURI())));
+            String data = new String(Files.readAllBytes(Path.of(getClass().getResource(FORM_FILE_NAME).toURI())));
             Form loadedForm = serializer.readValueFromString(data);
 
             ComponentsHandler componentsHandler = new ComponentsHandler();

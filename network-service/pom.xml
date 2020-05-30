@@ -16,9 +16,16 @@
         <groupId>com.formalspeech</groupId>
         <artifactId>form-essentials</artifactId>
     </dependency>
+
     <dependency>
         <groupId>com.formalspeech</groupId>
         <artifactId>database-service</artifactId>
+    </dependency>
+
+
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
     </dependency>
 
     <dependency>
