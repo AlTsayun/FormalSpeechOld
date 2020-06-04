@@ -20,6 +20,10 @@
             <groupId>com.formalspeech</groupId>
             <artifactId>database-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.formalspeech</groupId>
+            <artifactId>network-service</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>

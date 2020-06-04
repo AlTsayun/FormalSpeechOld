@@ -1,9 +1,9 @@
 package com.formalspeech.client.fx.windows.editWindow;
 
-import com.formalspeech.formEssentials.FormHandler;
+import com.formalspeech.formEssentials.components.Component;
+import com.formalspeech.formEssentials.components.ComponentsHandler;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.formEssentials.Form;
-import com.formalspeech.formEssentials.components.InfoComponent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,13 +28,13 @@ public class EditWindowController implements Initializable {
 
     private final EditWindowListener listener;
 
-    private InfoComponent[] loadedComponents;
+    private List<Component> components = new ArrayList<>();
 
     @FXML
     private Label lbTitle;
 
     @FXML
-    private VBox editList;
+    private VBox vbEdit;
 
     @FXML
     private Button btnCancel;
@@ -50,19 +50,18 @@ public class EditWindowController implements Initializable {
 
     @FXML
     void onBtnSaveClick(ActionEvent event) {
-            boolean isFilledCorrect = true;
-            for (InfoComponent c :
-                    loadedComponents) {
-                isFilledCorrect &= c.checkValue();
+        try {
+            for (Component c :
+                    components) {
+                c.getValueAsString();
             }
-            if (isFilledCorrect){
-                formToFill.setComponents(loadedComponents);
-                listener.sendChanges(formToFill);
-                ((Stage) btnSave.getScene().getWindow()).close();
-            } else {
-                btnSave.setStyle("-fx-focus-color: red");
-
-            }
+            Form filledForm = new Form(lbTitle.getText(), components);
+            listener.sendChanges(filledForm);
+            ((Stage) btnSave.getScene().getWindow()).close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            btnSave.setStyle("-fx-focus-color: red");
+        }
 
     }
 
@@ -76,16 +75,20 @@ public class EditWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
-            loadedComponents = FormHandler.loadComponents(formToFill).toArray(new InfoComponent[0]);
             ArrayList<Pane> loadedPanes = new ArrayList<>();
-            Arrays.stream(loadedComponents).forEach((Component) ->{
-                loadedPanes.add(Component.getLoadedPaneForEditing());
-            });
-            editList.getChildren().setAll(loadedPanes);
+            Map<String, String> identifierToValue = formToFill.getComponentIdentifierToValue();
+            ComponentsHandler handler = new ComponentsHandler();
+            for (String identifier :
+                    formToFill.getComponentsIdentifiers()) {
+                Component component = handler.getNewInstance(identifier, identifierToValue.get(identifier));
+                loadedPanes.add(component.getLoadedPaneForFilling());
+                components.add(component);
+            }
+            vbEdit.getChildren().setAll(loadedPanes);
             lbTitle.setText(formToFill.getName());
         } catch (IOException e) {
-            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Cannot load components of the form", "Cannot load components of the form");
-            ((Stage) editList.getScene().getWindow()).close();
+            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot load components of the form!");
+            ((Stage) vbEdit.getScene().getWindow()).close();
         }
     }
 }

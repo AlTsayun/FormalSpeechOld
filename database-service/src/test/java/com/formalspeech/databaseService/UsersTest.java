@@ -16,7 +16,7 @@ class UsersTest {
 
     @BeforeEach
     public void init() throws SQLException, ClassNotFoundException {
-        users = new Users();
+        users = Users.getInstance();
 
     }
     @Test

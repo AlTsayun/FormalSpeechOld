@@ -9,6 +9,7 @@ import com.formalspeech.formEssentials.components.ComponentsHandler;
 import com.formalspeech.formEssentials.serialization.StringSerializer;
 import com.formalspeech.formEssentials.serialization.XmlSerializer;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
+import com.formalspeech.server.fx.windows.mainWindow.MainWindowController;
 import com.formalspeech.server.fx.windows.mainWindow.TabPaneConstructorParam;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,17 +38,21 @@ public class CreateUserPaneController implements Initializable {
     private VBox vbComponents;
 
     private final Tab parentTab;
+    private final MainWindowController mainController;
+
 
     private ArrayList<Component> components;
 
 
 
     public CreateUserPaneController(TabPaneConstructorParam param) {
-        parentTab = param.parentTab;
+        this.mainController = param.mainController;
+        this.parentTab = param.parentTab;
     }
     public static String getFXMLFileName(){
         return "createUserPane.fxml";
     }
+
     @FXML
     void onCancelClicked(ActionEvent event) {
         parentTab.getTabPane().getTabs().remove(parentTab);
@@ -67,7 +72,7 @@ public class CreateUserPaneController implements Initializable {
                     int accessLevel = (Integer) components.get(6).convertStringAsValue(components.get(6).getValueAsString());
                     Date registrationDate = null;
 
-                    Users users = new Users();
+                    Users users = Users.getInstance();
                     if (users.add(new User(
                             login,
                             email,
@@ -78,6 +83,7 @@ public class CreateUserPaneController implements Initializable {
                             registrationDate
                     ))){
                         AlertWrapper.showAlert(Alert.AlertType.INFORMATION, "Success", "User "+ login + " successfully created");
+                        onCancelClicked(new ActionEvent());
                     } else {
                         AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "An user with such login already exists");
                     }

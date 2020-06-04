@@ -13,11 +13,20 @@ public class Users implements Closeable {
     final static String url = "jdbc:mysql://localhost:3306/formalspeech";
     final static String username = "root";
     final static String password = "";
-    final Connection connection;
+    private Connection connection;
+    private static  Users instance = null;
 
-    public Users() throws ClassNotFoundException, SQLException {
+
+    private Users() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection(url, username, password);
+    }
+
+    public static Users getInstance() throws SQLException, ClassNotFoundException {
+        if (instance == null){
+            instance = new Users();
+        }
+        return instance;
     }
 
     public List<User> getAllUsers() throws SQLException {
@@ -49,9 +58,10 @@ public class Users implements Closeable {
     }
 
     public boolean add(User user) throws SQLException{
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM `users`");
-        if(!resultSet.next()){
+        PreparedStatement preparedStatement1 = connection.prepareStatement("SELECT * FROM `users` WHERE `users`.`Login` = ?");
+        preparedStatement1.setString(1, user.getLogin());
+        ResultSet resultSet = preparedStatement1.executeQuery();
+        if(resultSet.next()){
             return false;
         } else {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `users` (`Login`, `Email`, `Password`, `IsActive`, `LastActivityDate`, `AccessLevel`, `RegistrationDate`) VALUES (?, ?, ?, ?, ?, ?, ?);");
@@ -131,10 +141,39 @@ public class Users implements Closeable {
         return null;
     }
 
+    public List<User> getUsersByEmail(String email) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE `users`.`Email` = ?");
+        preparedStatement.setString(1, email);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        List<User> users = collectUsers(resultSet);
+        return users;
+    }
+    public User getUserByLogin(String login) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE `users`.`Login` = ?");
+        preparedStatement.setString(1, login);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        List<User> users = collectUsers(resultSet);
+        if(users.size() == 1){
+            return users.get(0);
+        } else {
+            return null;
+        }
+    }
+
     @SneakyThrows
     @Override
     public void close() throws IOException {
         connection.close();
+        connection = null;
+        instance = null;
+    }
+
+    public List<User> getActiveUsersByEmail(String email) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` WHERE `IsActive` = 1 AND `Email` = ?");
+        preparedStatement.setString(1, email);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        List<User> users = collectUsers(resultSet);
+        return users;
     }
 }
 

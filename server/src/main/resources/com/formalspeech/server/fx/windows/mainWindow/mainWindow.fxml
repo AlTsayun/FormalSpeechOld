@@ -40,7 +40,7 @@
                                     <ToggleGroup fx:id="tgMainMenuNetworkServiceActivation" />
                                  </toggleGroup>
                               </RadioMenuItem>
-                              <RadioMenuItem mnemonicParsing="false" onAction="#onNetworkServiceDisableClicked" selected="true" text="Disabled" toggleGroup="$tgMainMenuNetworkServiceActivation" />
+                              <RadioMenuItem fx:id="rmiNetworkServiceDisabled" mnemonicParsing="false" onAction="#onNetworkServiceDisableClicked" selected="true" text="Disabled" toggleGroup="$tgMainMenuNetworkServiceActivation" />
                            </items>
                         </Menu>
                     </items>
@@ -49,14 +49,13 @@
                     <items>
                         <Menu mnemonicParsing="false" text="Find">
                           <items>
-                            <MenuItem mnemonicParsing="false" onAction="#onFindUserByEmailClicked" text="by email" />
+                            <MenuItem mnemonicParsing="false" onAction="#onFindUsersByEmailClicked" text="by email" />
                               <MenuItem mnemonicParsing="false" onAction="#onFindUserByLoginClicked" text="by login" />
                           </items>
                         </Menu>
                       <MenuItem mnemonicParsing="false" onAction="#onNewUserClicked" text="New user" />
                         <MenuItem mnemonicParsing="false" onAction="#onDeleteUserClicked" text="Delete user" />
-                        <MenuItem mnemonicParsing="false" onAction="#onShowActiveUsersClicked" text="Show active users" />
-                        <MenuItem mnemonicParsing="false" onAction="#onShowUsersClicked" text="Show all users" />
+                        <MenuItem mnemonicParsing="false" onAction="#onShowAllUsersClicked" text="Show all users" />
                     </items>
                   </Menu>
                 <Menu mnemonicParsing="false" text="Help">

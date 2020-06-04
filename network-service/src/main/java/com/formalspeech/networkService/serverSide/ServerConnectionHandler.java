@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ServerConnectionHandler {
     void disable();
+    boolean enable();
     void sendFormToUser(String login, String serializedForm);
     List<String> getSerializedFormsForUser(String login);
 }

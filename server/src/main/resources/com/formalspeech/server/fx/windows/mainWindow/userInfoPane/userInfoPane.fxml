@@ -29,7 +29,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <TextArea fx:id="taInfo" prefHeight="450.0" prefWidth="200.0" wrapText="true">
+                  <TextArea fx:id="taInfo" editable="false" prefHeight="450.0" prefWidth="200.0" wrapText="true">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -58,12 +58,17 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="220.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#onSendClick" text="Add to queue">
+                                    <Button mnemonicParsing="false" onAction="#onSendClick" text="Send a form">
                                        <HBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </HBox.margin>
                                     </Button>
                                     <Region HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" onAction="#onRefreshClicked" text="Refresh">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Button>
                                  </children>
                               </HBox>
                            </children>

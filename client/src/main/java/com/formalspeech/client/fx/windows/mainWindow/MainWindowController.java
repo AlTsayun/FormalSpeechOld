@@ -1,11 +1,17 @@
 package com.formalspeech.client.fx.windows.mainWindow;
 
+import com.formalspeech.formEssentials.serialization.StringSerializer;
+import com.formalspeech.formEssentials.serialization.XmlSerializer;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
 import com.formalspeech.formEssentials.Form;
 import com.formalspeech.fxmlEssentials.FXMLFileLoader;
 import com.formalspeech.fxmlEssentials.FXMLFileLoaderResponse;
 import com.formalspeech.client.fx.windows.editWindow.EditWindowConstructorParam;
 import com.formalspeech.client.fx.windows.editWindow.EditWindowController;
+import com.formalspeech.networkService.conntection.Connection;
+import com.formalspeech.networkService.conntection.ConnectionListener;
+import com.formalspeech.networkService.conntection.SocketConnection;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,31 +22,54 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Slf4j
 public class MainWindowController implements Initializable {
+    public static final int PORT = 4205;
+    private Connection connection;
+    private StringSerializer<Form> serializer;
+    private ConnectionListener listener = new ConnectionListener() {
+
+        @Override
+        public void onReceive(Connection connection, String data) {
+            log.info("Received form");
+            Form form = serializer.readValueFromString(data);
+            lvMain.getItems().add(form);
+        }
+
+        @Override
+        public void onConnected(Connection connection) {
+//            AlertWrapper.showAlert(Alert.AlertType.INFORMATION, "Success", "Connected successfully!");
+        }
+
+        @Override
+        public void onDisconnected(Connection connection) {
+//            AlertWrapper.showAlert(Alert.AlertType.WARNING, "Disconnected", "The connection is being discontinued!");
+        }
+    };
+
+    public MainWindowController() {
+        serializer = new XmlSerializer<>(Form.class);
+    }
 
     @FXML
     private ListView<Form> lvMain;
 
-    @FXML
-    private Button btnLoad;
-
-    @FXML
-    private Button btnSave;
 
     @FXML
     private Button btnEdit;
 
-
     @FXML
-    void onBtnEditClicked(ActionEvent event) {
+    void onFillFormClicked(ActionEvent event) {
         Form item;
         if ((item = lvMain.getSelectionModel().getSelectedItem()) == null){
             AlertWrapper.showAlert(Alert.AlertType.INFORMATION, "No item selected", "No item selected");
@@ -49,110 +78,61 @@ public class MainWindowController implements Initializable {
         }
     }
 
-//    @FXML
-//    void onBtnSaveClicked(ActionEvent event) {
-//        FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML("saveFileDialog",
-//                SaveFileDialogController.class,
-//                new SaveFileDialogConstructorParam(new SaveFileDialogListener() {
-//                    @Override
-//                    @SneakyThrows
-//                    public void sendFileInfo(String path, SerializersTypes serializersType, String pluginName) {
-//                        try {
-//                            SerializersHandler serializersHandler = new SerializersHandler(serializersType);
-//                            HierarchyObject[] objects = lvMain.getItems().stream().map((new Function<Form, Object>() {
-//                                @Override
-//                                @SneakyThrows
-//                                public Object apply(Form component){
-//                                    return (HierarchyObject) component.getValue();
-//                                }
-//                            })).toArray(HierarchyObject[]::new);
-//
-//                            byte[] data = serializersHandler.write(objects);
-//                            String extension = "";
-//
-//                            if(pluginName != null){
-//                                PluginsLoader pluginsLoader = new PluginsLoader();
-//                                Plugin plugin = (Plugin) pluginsLoader.loadPlugin(pluginName).getConstructor().newInstance();
-//                                data = plugin.convert(data);
-//                                extension = plugin.getFileExtension();
-//                            }
-//                            try (FileOutputStream stream = new FileOutputStream(path + extension)) {
-//                                stream.write(data);
-//                            }
-//
-//
-//                            Alert saveFileInfo = new Alert(Alert.AlertType.INFORMATION);
-//                            saveFileInfo.setTitle("Done!");
-//                            saveFileInfo.setHeaderText("File successfully saved");
-//                            saveFileInfo.showAndWait();
-//                        } catch (IOException e) {
-//                            Alert saveFileError = new Alert(Alert.AlertType.ERROR);
-//                            saveFileError.setTitle("Error");
-//                            saveFileError.setHeaderText("Cannot save file!");
-//                            saveFileError.showAndWait();
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }));
-//        showModalWindow((Parent) loaderResponse.loadedObject, "Configure file saving");
-//    }
 
-//    @FXML
-//    void onBtnLoadClicked(ActionEvent event) {
-//        FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML("loadFileDialog",
-//                LoadFileDialogController.class,
-//                new LoadFileDialogConstructorParam(new LoadFileDialogListener() {
-//                    @Override
-//                    public void sendFileInfo(String path, SerializersTypes serializersType) {
-//                        try {
-//                            byte[] data = Files.readAllBytes(Path.of(path));
-//
-//                            PluginsLoader pluginsLoader = new PluginsLoader();
-//                            String fileExtension = path.substring(path.lastIndexOf("."));
-//                            try {
-//                                Plugin plugin = pluginsLoader.getPluginForFileExtension(fileExtension);
-//                                data = plugin.revert(data);
-//                            } catch (IllegalArgumentException e) {
-//                                log.info("No plugin applied on loading file \"" + path + "\"");
-//                            }
-//
-//
-//                            List<HierarchyObject> hierarchyObjects = new ArrayList<>();
-//                            try {
-//                                SerializersHandler serializersHandler = new SerializersHandler(serializersType);
-//                                hierarchyObjects = serializersHandler.read(data);
-//                            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-//                                throw new IOException(e);
-//                            }
-//
-//
-//                            lvMain.setItems(FXCollections.observableArrayList(hierarchyObjects.stream().map((hierarchyObject) ->{
-//                                FXMLFileLoaderResponse<Object, Object> loaderResponse = FXMLFileLoader.loadFXML("objectComponent",
-//                                        ObjectComponent.class,
-//                                        new ComponentConstructorParam(null, hierarchyObject));
-//                                return (Form) loaderResponse.controller;
-//                            }).collect(Collectors.toList())));
-//
-//                            Alert loadedFileInfo = new Alert(Alert.AlertType.INFORMATION);
-//                            loadedFileInfo.setTitle("Done!");
-//                            loadedFileInfo.setHeaderText("File successfully loaded");
-//                            loadedFileInfo.showAndWait();
-//
-//
-//                        } catch (IOException e) {
-//                            Alert loadFileError = new Alert(Alert.AlertType.ERROR);
-//                            loadFileError.setTitle("Error");
-//                            loadFileError.setHeaderText("Cannot load file!");
-//                            loadFileError.showAndWait();
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }));
-//        showModalWindow((Parent) loaderResponse.loadedObject, "Configure file loading");
-//    }
+    boolean establishConnection(){
+        String serverAddress;
+        boolean isThrown = true;
+        while (isThrown) {
+            if (null == (serverAddress = showTextInputDialog("Enter server address", null, "Enter server address:"))){
+                break;
+            }
+            try {
+                connection = new SocketConnection(new Socket(serverAddress, PORT), listener);
+                isThrown = false;
+            } catch (IOException e) {
+                isThrown = true;
+            }
+        }
+        return !isThrown;
+    }
+
+    public void configureWindowClosing(){
+        btnEdit.getScene().getWindow().setOnCloseRequest(e ->{
+            if(connection != null){
+                closeConnection();
+            }
+        });
+    }
+
+    private void closeConnection(){
+        connection.close();
+        log.info("Closing connection");
+    }
+
+
+    @FXML
+    void onDisconnectClicked(ActionEvent event) {
+        connection.close();
+    }
+
+    @FXML
+    void onSendFormClicked(ActionEvent event) {
+        Form item;
+        if ((item = lvMain.getSelectionModel().getSelectedItem()) == null){
+            AlertWrapper.showAlert(Alert.AlertType.INFORMATION, "No item selected", "No item selected");
+        } else {
+            sendForm(item);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        if (!establishConnection()){
+            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot continue working without connection!");
+            Platform.exit();
+        }
         lvMain.setCellFactory(lv ->{
             ListCell<Form> cell = new ListCell<Form>(){
                 @Override
@@ -167,17 +147,32 @@ public class MainWindowController implements Initializable {
                 }
             };
 
+            cell.setOnMouseClicked((mouseEvent)->{
+                if (mouseEvent.getClickCount() == 2){
+                    Form item = cell.getItem();
+                    fillForm(item);
+                }
+            });
+
 
             MenuItem editItem = new MenuItem();
-            editItem.textProperty().bind(Bindings.format("Edit"));
+            editItem.textProperty().bind(Bindings.format("Fill"));
             editItem.setOnAction(event -> {
                 Form item = cell.getItem();
                 fillForm(item);
             });
 
+            MenuItem sendItem = new MenuItem();
+            sendItem.textProperty().bind(Bindings.format("Send to server"));
+            sendItem.setOnAction(event -> {
+                Form item = cell.getItem();
+                sendForm(item);
+                lvMain.getItems().remove(item);
+            });
+
             ContextMenu componentContextMenu = new ContextMenu();
 
-            componentContextMenu.getItems().setAll(editItem);
+            componentContextMenu.getItems().setAll(editItem, sendItem);
 
 
             cell.emptyProperty().addListener((obs, wasEmpty, isNowEmpty) -> {
@@ -225,6 +220,29 @@ public class MainWindowController implements Initializable {
             AlertWrapper.showAlert(Alert.AlertType.ERROR, "Cannot edit form", "Cannot edit form");
         }
 
+    }
+
+    private void sendForm(Form form){
+        String data = serializer.writeAsString(form);
+        connection.send(data);
+        AlertWrapper.showAlert(Alert.AlertType.INFORMATION, "Success", "The form is sent successfully!");
+    }
+
+    private String showTextInputDialog(String title, String headerText, String label){
+        TextInputDialog dialog = new TextInputDialog("");
+
+        dialog.setTitle(title);
+        dialog.setHeaderText(headerText);
+        dialog.setContentText(label);
+
+        Optional<String> result = dialog.showAndWait();
+
+        String answer = null;
+
+        if(result.isPresent()){
+            answer = result.get();
+        }
+        return answer;
     }
 
 }

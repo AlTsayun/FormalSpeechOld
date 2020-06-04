@@ -16,6 +16,10 @@
             <groupId>com.formalspeech</groupId>
             <artifactId>form-essentials</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.formalspeech</groupId>
+            <artifactId>network-service</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>

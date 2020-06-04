@@ -8,6 +8,7 @@ import com.formalspeech.formEssentials.components.ComponentsHandler;
 import com.formalspeech.formEssentials.serialization.StringSerializer;
 import com.formalspeech.formEssentials.serialization.XmlSerializer;
 import com.formalspeech.fxmlEssentials.AlertWrapper;
+import com.formalspeech.server.fx.windows.mainWindow.MainWindowController;
 import com.formalspeech.server.fx.windows.mainWindow.TabPaneConstructorParam;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -35,9 +36,11 @@ import java.util.stream.Collectors;
 public class CreateFormPaneController implements Initializable {
 
     private final Tab parentTab;
+    private final MainWindowController mainController;
 
     public CreateFormPaneController(TabPaneConstructorParam param) {
-        parentTab = param.parentTab;
+        this.mainController = param.mainController;
+        this.parentTab = param.parentTab;
     }
 
     public static String getFXMLFileName(){
@@ -72,8 +75,8 @@ public class CreateFormPaneController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(tfFormName.getScene().getWindow());
         if (selectedFile != null) {
             try {
-                StringSerializer<Form> serializer= new XmlSerializer<>(Form.class);
                 String data = new String(Files.readAllBytes(selectedFile.toPath()));
+                StringSerializer<Form> serializer= new XmlSerializer<>(Form.class);
                 Form loadedForm = serializer.readValueFromString(data);
 
                 tfFormName.setText(loadedForm.getName());
@@ -305,7 +308,7 @@ public class CreateFormPaneController implements Initializable {
                 try {
                     ObservableList<Component> items = cell.getListView().getItems();
                     Component tmpItem = items.remove(cell.getListView().getSelectionModel().getSelectedIndex() + 1);
-                    items.add(cell.getListView().getSelectionModel().getSelectedIndex() - 1, tmpItem);
+                    items.add(cell.getListView().getSelectionModel().getSelectedIndex(), tmpItem);
                 } catch (IndexOutOfBoundsException e) {
 
                 }

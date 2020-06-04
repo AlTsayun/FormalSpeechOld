@@ -31,7 +31,7 @@
             </Pane>
             <ScrollPane>
                <content>
-                  <VBox fx:id="editList" prefHeight="520.0" prefWidth="400.0" spacing="5.0" />
+                  <VBox fx:id="vbEdit" prefHeight="520.0" prefWidth="400.0" spacing="5.0" />
                </content>
             </ScrollPane>
             <Pane prefHeight="40.0" prefWidth="200.0">

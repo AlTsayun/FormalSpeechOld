@@ -2,10 +2,7 @@ package com.formalspeech.networkService.conntection;
 
 import lombok.SneakyThrows;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class SocketConnection implements Connection {
@@ -51,8 +48,8 @@ public class SocketConnection implements Connection {
     @SneakyThrows
     public void close() {
         thread.interrupt();
-        in.close();
         out.close();
+        in.close();
     }
 
 }
