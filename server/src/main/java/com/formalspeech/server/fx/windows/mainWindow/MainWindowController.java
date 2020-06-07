@@ -238,40 +238,40 @@ public class MainWindowController implements Initializable {
     }
 
     public boolean sendFormToUser(String login){
-        if (connectionHandler == null){
-            if (!AlertWrapper.showConfirmationDialog("Network service disabled","Network service isn't enabled. Enable it?")){
+        if (connectionHandler == null) {
+            if (!AlertWrapper.showConfirmationDialog("Network service disabled", "Network service isn't enabled. Enable it?")) {
                 return false;
-            } else{
+            } else {
                 onNetworkServiceEnableClicked(new ActionEvent());
             }
-            try {
-                Users users = Users.getInstance();
-                User user = users.getUserByLogin(login);
-                if (user != null){
-                    if (user.isActive()){
-                        FileChooser fileChooser = new FileChooser();
-                        fileChooser.setTitle("Open file with form");
-                        fileChooser.getExtensionFilters().addAll(
-                                new FileChooser.ExtensionFilter("Form files", "*" + Form.FORM_FILE_EXTENSION));
-                        File selectedFile = fileChooser.showOpenDialog(tpMainWindow.getScene().getWindow());
-                        if (selectedFile != null) {
-                            try {
-                                String data = new String(Files.readAllBytes(selectedFile.toPath()));
-                                connectionHandler.sendFormToUser(login, data);
-                                return true;
-                            } catch (IOException e) {
-                                AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot properly open file with form " + selectedFile.getPath());
-                            }
+        }
+        try {
+            Users users = Users.getInstance();
+            User user = users.getUserByLogin(login);
+            if (user != null){
+                if (user.isActive()){
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setTitle("Open file with form");
+                    fileChooser.getExtensionFilters().addAll(
+                            new FileChooser.ExtensionFilter("Form files", "*" + Form.FORM_FILE_EXTENSION));
+                    File selectedFile = fileChooser.showOpenDialog(tpMainWindow.getScene().getWindow());
+                    if (selectedFile != null) {
+                        try {
+                            String data = new String(Files.readAllBytes(selectedFile.toPath()));
+                            connectionHandler.sendFormToUser(login, data);
+                            return true;
+                        } catch (IOException e) {
+                            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot properly open file with form " + selectedFile.getPath());
                         }
-                    } else {
-                        AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "User is not active at the moment!");
                     }
                 } else {
-                    AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot find such user!");
+                    AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "User is not active at the moment!");
                 }
-            } catch (SQLException | ClassNotFoundException throwables) {
-                AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot establish connection to database!");
+            } else {
+                AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot find such user!");
             }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            AlertWrapper.showAlert(Alert.AlertType.ERROR, "Error", "Cannot establish connection to database!");
         }
         return false;
     }

@@ -86,9 +86,10 @@ public class UserInfoPaneController implements Initializable {
     }
 
     void onShowFormPreview(Form form){
+
+        ArrayList<Pane> panes = new ArrayList<>();
         Map<String, String> componentIdentifierToValue = form.getComponentIdentifierToValue();
-        Set<String> identifiers = componentIdentifierToValue.keySet();
-        List<Pane> panes = new ArrayList<>();
+        List<String> identifiers = form.getComponentsIdentifiers();
         ComponentsHandler componentsHandler = new ComponentsHandler();
         for (String identifier:
              identifiers) {
