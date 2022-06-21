@@ -27,7 +27,7 @@
         <lombok.version>1.18.12</lombok.version>
         <javafx.version>15-ea+3</javafx.version>
         <jackson.version>2.10.3</jackson.version>
-        <mysql.version>8.0.20</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <guava.version>29.0-jre</guava.version>
 
     </properties>
